@@ -79,3 +79,14 @@ CREATE TABLE Reviews(
     FOREIGN KEY (appointment_id) REFERENCES Appointments(appointment_id),
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
+
+
+INSERT INTO Services(service_name,description, price,duration)
+VALUES('Swedish Massage','This is a type of full-body massage that is usually aimed at people who are new to massages or are sensitive to touch.','200','60'),
+('Shiatsu','Japanese massage technique based on the principles of traditional Chinese medicine.','350','60'),
+('Thai massage','Thai massage is a popular form of complementary and alternative medicine (CAM) that combines the principles of acupressure and yoga.','450','60');
+
+INSERT INTO Users(full_name,email,phone_number,password,role)
+VALUES('Jane Mary','test@gmail.com','1234687098','Credit011','therapist'),
+VALUES('Kevin Heart','tests@gmail.com','1234687098','Press011,'therapist'),
+VALUES('Dwayne Wade','testing@gmail.com','1234687098','Read011,'therapist');

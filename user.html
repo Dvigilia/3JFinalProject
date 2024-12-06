@@ -4,56 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            background-color: #f4f4f4;
-        }
-        .container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        h4 {
-            color: #333;
-        }
-        ul {
-            list-style: disc inside;
-            margin: 10px 0;
-            padding-left: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/ud.css">
 </head>
 <body>
-    <div class="container">
-        <h4>User Dashboard</h4>
-        <p>Once logged in, users access a personalized dashboard for managing appointments, reviews, and account settings.</p>
-        <ul>
-            <li><strong>Upcoming Appointments:</strong>
+    <header>
+        <h1>Welcome, <?= $userProfile['name'] ?>!</h1>
+    </header>
+    <main class="dashboard-container">
+        <!-- Upcoming Appointments Section -->
+        <section class="appointments-section">
+            <h2>Upcoming Appointments</h2>
+            <?php if (!empty($upcomingAppointments)): ?>
                 <ul>
-                    <li>List or card view showing upcoming appointments with details and a “Cancel” or “Reschedule” option.</li>
+                    <?php foreach ($upcomingAppointments as $appointment): ?>
+                        <li>
+                            <strong><?= $appointment['service'] ?></strong>
+                            <p><?= $appointment['date'] ?> at <?= $appointment['time'] ?></p>
+                            <button>Cancel</button>
+                            <button>Reschedule</button>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
-            </li>
-            <li><strong>Past Appointments:</strong>
+            <?php else: ?>
+                <p>No upcoming appointments.</p>
+            <?php endif; ?>
+        </section>
+
+        <!-- Past Appointments Section -->
+        <section class="appointments-section">
+            <h2>Past Appointments</h2>
+            <?php if (!empty($pastAppointments)): ?>
                 <ul>
-                    <li>List of previous appointments with an option to leave a review.</li>
+                    <?php foreach ($pastAppointments as $appointment): ?>
+                        <li>
+                            <strong><?= $appointment['service'] ?></strong>
+                            <p><?= $appointment['date'] ?> at <?= $appointment['time'] ?></p>
+                            <button>Leave a Review</button>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
-            </li>
-            <li><strong>Account Settings:</strong>
-                <ul>
-                    <li><strong>Profile:</strong> Edit personal details like name, email, and phone number.</li>
-                    <li><strong>Change Password:</strong> Form for password update.</li>
-                </ul>
-            </li>
-            <li><strong>Promotions and Rewards:</strong>
-                <ul>
-                    <li>Display any applicable promotions or loyalty rewards available to the user.</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+            <?php else: ?>
+                <p>No past appointments.</p>
+            <?php endif; ?>
+        </section>
+
+        <!-- Account Settings Section -->
+        <section class="account-settings">
+            <h2>Account Settings</h2>
+            <form method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="<?= $userProfile['name'] ?>" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="<?= $userProfile['email'] ?>" required>
+
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" value="<?= $userProfile['phone'] ?>" required>
+
+                <button type="submit" name="update-profile">Update Profile</button>
+            </form>
+            <form method="POST">
+                <h3>Change Password</h3>
+                <label for="password">New Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit" name="change-password">Change Password</button>
+            </form>
+        </section>
+
+        <!-- Promotions and Rewards Section -->
+        <section class="promotions-section">
+            <h2>Promotions and Rewards</h2>
+            <p>Check out our latest promotions and earn loyalty rewards!</p>
+        </section>
+    </main>
 </body>
 </html>

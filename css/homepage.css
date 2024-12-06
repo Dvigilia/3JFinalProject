@@ -1,61 +1,179 @@
+/* General Styles */
 body {
-    background-size: contain; /* Fits the entire image within the element */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-position: center; /* Centers the image inside the element */
-    background-image: url(https://static.vecteezy.com/system/resources/thumbnails/035/595/558/small/ai-generated-black-stone-cairn-with-bamboo-and-white-flower-rock-zen-aesthetic-spa-concept-with-minimalist-composition-serenity-in-nature-calming-atmosphere-for-peaceful-wellness-background-photo.jpg);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
 }
 
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    width: 100%;
-    padding: 1.5rem 50%;
-    background-image: url();
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    z-index: 100;
-}
-
-.navbar a{
-    position: relative;
-    font-size: 1.7rem;
-    color: purple;
-    font-weight: 500;
-    margin-right: 3.5rem;
-    transition: .3s;
-}
-
-.navbar a:hover,
-.navbar a.active {
-    color: #00abf0;
-}
-
-.navbar a.active::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 100%;
-    height: .2rem;
-    background: var(--white-color);
-}
-
-.hero { 
-    padding-top: 55px;
+    background: url('/img/background.jpg') no-repeat center center/cover;
+    color: white;
     text-align: center;
-    font-size: 50px;
+    padding: 80px 20px;
 }
 
-.cta-buttons .a.active::before{
-    position: relative;
-    font-size: 1.7rem;
-    color: purple;
-    font-weight: 500;
-    margin-right: 3.5rem;
-    transition: .3s;
-    padding: 1.5rem 30%;
-    
+header h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+.cta-buttons a {
+    text-decoration: none;
+    color: white;
+    background: #007BFF;
+    padding: 15px 25px;
+    border-radius: 5px;
+    margin: 10px;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.cta-buttons a:hover {
+    background: #0056b3;
+}
+
+/* Section Styles */
+section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #007BFF;
+}
+
+/* Services Section */
+.services {
+    background: #f9f9f9;
+}
+
+.service-card {
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 250px;
+    margin: 10px;
+    text-align: left;
+    background: white;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card img {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+
+.service-card h3 {
+    font-size: 1.2rem;
+    margin: 10px;
+}
+
+.service-card p {
+    margin: 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.service-card a {
+    display: block;
+    text-align: center;
+    margin: 10px;
+    padding: 10px 15px;
+    background: #28A745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.service-card a:hover {
+    background: #1e7e34;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background: #fff;
+}
+
+.testimonial-card {
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 250px;
+    margin: 10px;
+    text-align: center;
+    background: white;
+    padding: 20px;
+    transition: box-shadow 0.3s;
+}
+
+.testimonial-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.testimonial-card h3 {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.testimonial-card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* CTA Section */
+.cta-section {
+    background: #007BFF;
+    color: white;
+    padding: 40px 20px;
+}
+
+.cta-section h2 {
+    margin-bottom: 20px;
+}
+
+.cta-section a {
+    text-decoration: none;
+    color: white;
+    background: #FFC107;
+    padding: 15px 25px;
+    border-radius: 5px;
+    margin: 10px;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.cta-section a:hover {
+    background: #e0a800;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .service-card, .testimonial-card {
+        width: 100%;
+    }
+
+    .cta-buttons a, .cta-section a {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
 }
