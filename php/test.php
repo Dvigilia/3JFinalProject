@@ -87,6 +87,15 @@ VALUES('Swedish Massage','This is a type of full-body massage that is usually ai
 ('Thai massage','Thai massage is a popular form of complementary and alternative medicine (CAM) that combines the principles of acupressure and yoga.','450','60');
 
 INSERT INTO Users(full_name,email,phone_number,password,role)
-VALUES('Jane Mary','test@gmail.com','1234687098','Credit011','therapist'),
-VALUES('Kevin Heart','tests@gmail.com','1234687098','Press011,'therapist'),
-VALUES('Dwayne Wade','testing@gmail.com','1234687098','Read011,'therapist');
+VALUES('admin','admin@gmail.com','1234567','admin','admin');
+
+INSERT INTO Services(service_name,description,price,duration)
+VALUES('Deep tissue massage', 'Deep tissue massage uses more pressure than a Swedish massage. It's a good option if you have muscle problems.', '380', '80');
+
+UPDATE Services
+SET image_path = CASE 
+    WHEN service_id = 2 THEN 'images/serv2.webp'
+    WHEN service_id = 3 THEN 'images/serv3.jpg'
+    WHEN service_id = 4 THEN 'images/serv4.jpg'
+    ELSE image_path  -- Keeps existing value if no match
+END;

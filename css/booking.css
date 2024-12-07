@@ -1,61 +1,96 @@
+
 body {
+    background-color: antiquewhite;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
 }
 
 header {
+    background-color: #2baf6a;
+    color: #fff;
+    padding: 10px 20px;
     text-align: center;
-    padding: 20px;
-    background-color: #007BFF;
-    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.booking-container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
+header h1 {
+    margin: 0;
+    font-size: 24px;
 }
 
-h2 {
-    color: #007BFF;
-    margin-bottom: 10px;
-}
-
-label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
-input, select, button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-.success {
-    color: green;
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
     font-weight: bold;
 }
 
-.error {
-    color: red;
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form select, form input[type="date"], form input[type="time"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+form button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+/* Feedback Messages */
+main p {
+    text-align: center;
+    font-size: 16px;
+    padding: 10px;
+}
+
+main p.success {
+    color: #28a745;
+    font-weight: bold;
+}
+
+main p.error {
+    color: #dc3545;
     font-weight: bold;
 }

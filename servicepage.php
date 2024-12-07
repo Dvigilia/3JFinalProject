@@ -3,14 +3,14 @@
 include 'Bdatabase.php';
 
 // Initialize variables for filters and sorting
-$filterType = $_GET['type'] ?? null;  // Service type filter
-$priceMin = $_GET['price_min'] ?? null;  // Minimum price
-$priceMax = $_GET['price_max'] ?? null;  // Maximum price
-$duration = $_GET['duration'] ?? null;  // Duration filter
-$sortBy = $_GET['sort'] ?? 'service_name';  // Sort option
+$filterType = $_GET['type'] ?? null;
+$priceMin = $_GET['price_min'] ?? null;
+$priceMax = $_GET['price_max'] ?? null;
+$duration = $_GET['duration'] ?? null;
+$sortBy = $_GET['sort'] ?? 'service_name';
 
 // Build query dynamically based on filters
-$query = "SELECT service_id, service_name, description, price, duration FROM Services WHERE 1=1";
+$query = "SELECT service_id, service_name, description, price, duration, image_path FROM Services WHERE 1=1";
 if ($filterType) $query .= " AND service_name LIKE '%$filterType%'";
 if ($priceMin) $query .= " AND price >= $priceMin";
 if ($priceMax) $query .= " AND price <= $priceMax";
@@ -61,7 +61,7 @@ $Services = $result && $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) 
         <?php if (!empty($Services)): ?>
             <?php foreach ($Services as $service): ?>
                 <div class="service-card">
-                    <img src="images/<?= strtolower(str_replace(' ', '_', $service['service_name'])) ?>.jpg" alt="<?= $service['service_name'] ?>" class="service-image">
+                    <img src="<?= htmlspecialchars($service['image_path']) ?>" alt="<?= htmlspecialchars($service['service_name']) ?>" class="service-image">
                     <h2 class="service-title"><?= htmlspecialchars($service['service_name']) ?></h2>
                     <p class="service-price">$<?= htmlspecialchars($service['price']) ?></p>
                     <p class="service-duration"><?= htmlspecialchars($service['duration']) ?> minutes</p>

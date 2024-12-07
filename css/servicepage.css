@@ -1,5 +1,4 @@
 body {
-    background-image: url(img/bg.servicepage.jpg);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -9,7 +8,8 @@ body {
 }
 
 header {
-    background-color: #f4f4f4;
+    background-image: url('img/bg.servicepage.jpg');
+    background-color: #99BCAD;
     width: 100%;
     text-align: center;
     padding: 20px 0;
