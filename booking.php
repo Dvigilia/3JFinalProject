@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 include 'Bdatabase.php'; 
 
 $user_id = $_SESSION['user_id']; // Get the logged-in user's ID
-$services = [];
+$services = []; 
 $therapists = [];
 $availabilityStatus = ''; 
 
