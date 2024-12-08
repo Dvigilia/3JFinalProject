@@ -47,8 +47,33 @@ header h1 {
     gap: 20px;
 }
 nav{
-
+    background-color: #2c3e50;
+    padding: grid;
+    border-radius: 8px;
+    margin-bottom: 30px;
 }
+
+nav ul{
+    list-style: none;
+    display: flex;
+    margin-bottom: space-around;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 1.2 rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover{
+    color: #ff4b5c;
+}
+
 
 .section {
     background-color: #f9f9f9;
